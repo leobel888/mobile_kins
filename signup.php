@@ -4,7 +4,14 @@ session_start();
 if(isset($_SESSION['badcap'])){
 	$_SESSION['badcap'];
 	unset($_SESSION['badcap']);
+}	
+if(isset($_SESSION['foundaccount'])){
+	$_SESSION['foundaccount'];
+	unset($_SESSION['foundaccount']);
+	
 }
+
+
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -63,7 +70,8 @@ if(pass1 == pass2){
 						<p>Tell us what you think about our little operation.</p>
 					</header>
 					<div class="box">
-					<h3></h3>
+					<h3><?php echo $_SESSION['badcap']; ?></h3>
+					<h3><?php echo $_SESSION['foundaccount']; ?></h3>	
 						<form method="post" action="reg.php">
 							<div class="row uniform 50%">
 								<div class="6u 12u(mobilep)">
