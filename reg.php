@@ -2,16 +2,27 @@
 <?php
 session_start();
 
-echo $fullname=$_POST['name'];
-echo $email=$_POST['email'];
-echo $username=$_POST['username'];
-echo $password=$_POST['password2'];
+$fullname=$_POST['name'];
+$email=$_POST['email'];
+$username=$_POST['username'];
+$pass=$_POST['password2'];
+$encodepass=base64_encode($pass);
+
 //echo $_POST['g-recaptcha-response'];
 
 // grab recaptcha library
 require_once "recaptchalib.php";
  
+	//For connect to mongodb
+$m = new MongoClient('mongodb://admin:2765@ds040017.mlab.com:40017/test_base');
 
+	// select a database
+$db = $m->test_base;
+$collection = $db->collect_1;
+	
+///////////////////////////////////
+
+ 
  // your secret key
 $secret = "6LeaPjcUAAAAAKkayvQT8CKX5FABmhwCB0ze6Xx4"; // Secret key of google account
  
@@ -31,13 +42,10 @@ if ($_POST["g-recaptcha-response"]) {
 
 if ($response != null && $response->success) {
 	
-	//For connect to mongodb
-	$m = new MongoClient('mongodb://admin:2765@ds040017.mlab.com:40017/test_base');
 
-	// select a database
-	$db = $m->test_base;
-	$collection = $db->collect_1;
-		
+
+
+	
 	$document = array( 
 		  "user_name" => $fullname, 
 		  "user_email" => $email, 
