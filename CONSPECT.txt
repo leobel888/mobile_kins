@@ -1,5 +1,74 @@
+
+LESSON 1
+
+https://www.quora.com/What-is-mobile-app-development
+https://www.comakeit.com/
+
+https://bitnami.com/
+https://bitnami.com/stacks
+https://bitnami.com/stack/mean
+DOWNLOAD MEAN INSTALLER
+https://bitnami.com/redirect/to/159968/bitnami-meanstack-3.4.9-0-windows-x64-installer.exe
+No thanks, just take me to the download
+Next
+Снять галочки:
+Pyton
+Git
+ImageMagick
+Next
+Задать пароль
+Next
+Lounch meanstack in the cloud with Bitnami – снять галочку
+Next
+Finish
+
+Должны открыться окна: сервера и страницы http://127.0.0.1/ 
+
+C:\Bitnami\meanstack-3.4.9-0\apache2\htdocs\index.html – открываем в Notepad++
+
+Открываем сайт
+https://www.w3schools.com/
+копируем текст из HTML Example:
+и заменяем содержимое открытого html файла
+сохраняем
+идём в браузер и обновляем нашу страничку http://127.0.0.1/
+видим изменения
+переходим https://www.w3schools.com/css/default.asp (Tutorials --> Learn CSS)
+Копируем текст из CSS Example и вставляем после тега </title> обрамив тегом <style></style>
+Сохраняем и смотрим изменения.
+
+Пробуем менять значения параметров и смотреть изменения.
+
+Открываем сайт https://html5up.net/
+Выбираем Alpha
+Делаем Download
+Открываем скачанный архив
+Удаляем содержимое C:\Bitnami\meanstack-3.4.9-0\apache2\htdocs
+И копируем туда содержимое архива.
+Перечитываем страницу http://127.0.0.1/
+
+На сайте http://www.color-hex.com/ можно посмотреть Hex коды цветов
+
+Снова открываем index.html в Notepad++
+Убираем 13 строку
+		<link rel="stylesheet" href="assets/css/main.css" />
+Сохраняем и смотрим изменения.
+
+Видим, как выглядит без css
+Возвращаем строку
+
+Меняем цвет header
+
+
+
+Регистрация на сайте https://mlab.com/ и создание базы данных.
+
+LESSON 2
+
+
 https://www.udemy.com/courses/search/?q=intel%20xdk&src=sac&kw=intel%20x
 https://www.tutorialspoint.com/mongodb/
+https://bitnami.com/stacks
 C:\Bitnami\meanstack-3.4.9-0\php\ext driver php: php_mongo, php_mongodb
 
 php ini 2032 2034 mongo db
