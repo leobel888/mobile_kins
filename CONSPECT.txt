@@ -1,0 +1,19 @@
+https://www.udemy.com/courses/search/?q=intel%20xdk&src=sac&kw=intel%20x
+https://www.tutorialspoint.com/mongodb/
+C:\Bitnami\meanstack-3.4.9-0\php\ext driver php: php_mongo, php_mongodb
+
+php ini 2032 2034 mongo db
+
+
+change time zone php.ini / date.timezone = "America/New_York"
+mongo db
+add user
+add collection
+add documents via PHP 
+
+lesson 3
+
+https://www.google.com/recaptcha/intro/
+
+lesson 5
+C:\Windows\System32\drivers\etc\hosts
