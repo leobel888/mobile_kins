@@ -9,8 +9,9 @@
  if(isset($_SESSION['foundaccount'])){
 	 $_SESSION['foundaccount'];
 	 unset($_SESSION['foundaccount']);
-	
 }
+
+var_dump( $_SESSION );
 
 ?>
 <!DOCTYPE HTML>
@@ -46,8 +47,8 @@
 		
 		<div class="box">
 		
-		 <h3><?php  echo $_SESSION['badcap']; ?></h3>
-		 <h3><?php  echo $_SESSION['foundaccount']; ?></h3>	
+		 <h3><?php  echo 'badcap: '.$_SESSION['badcap']; ?></h3>
+		 <h3><?php  echo 'foundaccount: '.$_SESSION['foundaccount']; ?></h3>	
 		
 		<form method="post" action="loginsub.php">
 							

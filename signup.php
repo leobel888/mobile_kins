@@ -101,8 +101,10 @@ if(pass1 == pass2){
 							
 							<div class="row uniform">
 								<div class="12u">
+									<div class="g-recaptcha" name="g-recaptcha-response" data-sitekey="6LeaPjcUAAAAAORBy-V95JwjGhyi1t9pCjDNOXmr"></div>
+								</div>
+								<div class="12u">
 									<ul class="actions align-center">
-										<div class="g-recaptcha" name="g-recaptcha-response" data-sitekey="6LeaPjcUAAAAAORBy-V95JwjGhyi1t9pCjDNOXmr"></div>
 										<li><input type="submit" id="submit" value="Send Message" /></li>
 									</ul>
 								</div>
@@ -110,8 +112,8 @@ if(pass1 == pass2){
 							
 							<div class="row uniform">
 								<div class="12u">
-							<div id="showerror"></div>
-							</div>
+									<div id="showerror"></div>
+								</div>
 							</div>
 							
 						</form>
