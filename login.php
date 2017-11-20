@@ -47,8 +47,15 @@ var_dump( $_SESSION );
 		
 		<div class="box">
 		
-		 <h3><?php  echo 'badcap: '.$_SESSION['badcap']; ?></h3>
-		 <h3><?php  echo 'foundaccount: '.$_SESSION['foundaccount']; ?></h3>	
+		 <h3><?php  echo $_SESSION['badcap']; ?></h3>
+		 <h3><?php  echo $_SESSION['foundaccount']; ?></h3>	
+		 </h3><?PHP
+		
+		if(isset($_SESSION['badcredential'])){
+		echo $_SESSION['badcredential'];
+		unset($_SESSION['badcredential']);
+}
+?></h3>
 		
 		<form method="post" action="loginsub.php">
 							
