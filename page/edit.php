@@ -63,21 +63,25 @@ echo $valUser=$_GET['val'];
 
 							<!-- Form -->
 								<section class="box">
-									<h3>Form</h3>
-									<form method="post" id="idForm" action="#">
+									<h3>Edit home page</h3>
+										<div id="message_error"></div>
+										<form method="post" id="idForm" action="#" enctype="multipart/form-data">
+										
+											<input type="hidden" name= "valcred" value = "<?php echo $valUser?>" />
+										
 										<div class="row uniform 50%">
 											<div class="6u 12u(mobilep)">
-												<input type="file" name="file" id="file" value="" placeholder="file" />
+												<input type="file" name="filepick" id="filepick" value="" placeholder="filepick" required/>
 											</div>
 											<div class="6u 12u(mobilep)">
-												<input type="color" name="color" id="color" value="" placeholder="color" />
+												<input type="color" name="color" id="color" value="" placeholder="color" required/>
 											</div>
 										</div>
 										
 										
 										<div class="row uniform 50%">
 											<div class="12u">
-												<textarea name="message" id="message" placeholder="Enter for about me" rows="6"></textarea>
+												<textarea name="message" id="message" placeholder="Enter for about me" rows="6" required></textarea>
 											</div>
 										</div>
 										<div class="row uniform">
@@ -91,7 +95,7 @@ echo $valUser=$_GET['val'];
 										</div>
 									</form>
 
-									<hr />
+									<hr/>
 							
 								</section>
 
@@ -103,19 +107,16 @@ echo $valUser=$_GET['val'];
 $(document).ready(function(){
 					
 	$("#idForm").submit(function(e) {	
+	e.preventDefault();
 	
-	var valUser = "<?php echo $valUser; ?>";
-	var msg=$('#message').val();
-	var color=$('#color').val();
-	
-	var poststr="aboutsend="+msg+"&colortype="+color+"&valcred="+valUser;
-	
-	alert("about  "+msg+" color type "+color);
 					
 	$.ajax({
-		type: "POST",
 		url:"updatedata.php",
-		data: poststr, //serializes tye form's elements
+		type: "POST",
+		data: new FormData(this), // serializes the form's elements
+		contentType: false,
+		cache: false,
+		processData: false,
 		success: function(data)
 		{
 			// aletr cmntdwn; //show response from the php script.
@@ -123,10 +124,34 @@ $(document).ready(function(){
 		}
 		});
 
-	e.preventDefault(); //avoid to execute the actula submit of the form
-		return false;
-})
-					
+	});
+	
+$(function(){
+	$("#filepick").change(function(){
+		$("#message_error").empty();	
+		var file= this.files[0];	
+		var imagefile = file.type;
+		var match= ["image/jpeg","image/png","image/jpg"];
+		if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]) ))	
+		{
+			$("#preview").attr('src','noimage.png');
+			$("#message_error").html("<p> please select a valid Image file</p>+<h4>Note</h4>"+
+			"<span>Only Jpeg, JPG and PNG images are allowed</span>");
+			
+			return false;
+		
+		}else{
+			var reader = new FileReader();
+			reader.onload = ImageIsLoaded;
+			reader.readAsDataURL(this.files[0]);
+			}
+	
+
+	});
+	
+});
+
+	
 });
 </script>
 

@@ -30,11 +30,13 @@ $cursoruserdata = $collection->find(array("usercredential" =>$_SESSION['logmein'
 foreach ($cursoruser as $row){
 	$userfulname = $row['name'];
 	$useremail = $row['email'];
+	$userpic = $row['userpicture'];
 }
 
 foreach ($cursoruserdata as $row){
 	$selectcolor = $row['selectcolor'];
 	$userabout = $row['userabout'];
+	$userpic = $row['userpicture'];
 }
 
 
@@ -74,6 +76,18 @@ if($_SESSION['logmein'] == "leobel") {
 	body {
 		background-color: <?php echo $selectcolor; ?>
 	}
+	
+	#banner {
+    background-attachment: scroll,	fixed;
+    background-color: #ab1717;
+    background-image: url(images/overlay.png), url(upload/<?php echo $userpic;?>);
+    background-position: top left,	center center;
+    background-repeat: repeat,	no-repeat;
+    background-size: auto,	cover;
+    color: #fff;
+    padding: 12em 0 20em 0;
+    text-align: center;
+}
 	
 	</style>
 	
