@@ -4,12 +4,48 @@ session_start();
 
 if(isset($_SESSION['logmein'])){
 	
+	echo $_SESSION['logmein'];
 	$username = $_SESSION['logmein'];
 	
-}else{
+}elseif($_SESSION['logmein'] == null){
+	unset($_SESSION['logmein']);
 	
-	header("Location: ../login.php");
-	exit();
+}
+	
+//	header("Location: ../login.php");
+	
+
+//Connect to mongodb
+$m = new MongoClient('mongodb://admin:2765@ds040017.mlab.com:40017/test_base');
+
+// select a database
+$db = $m->test_base;
+
+$collection = $db->collect_1;
+
+$cursoruser = $collection->find(array("username" =>$_SESSION['logmein']));
+
+$cursoruserdata = $collection->find(array("usercredential" =>$_SESSION['logmein']));
+
+foreach ($cursoruser as $row){
+	$userfulname = $row['name'];
+	$useremail = $row['email'];
+}
+
+foreach ($cursoruserdata as $row){
+	$selectcolor = $row['selectcolor'];
+	$userabout = $row['userabout'];
+}
+
+
+if($_SESSION['logmein'] == "leobel") {
+	$color = "red";
+}elseif($_SESSION['logmein'] == "leos888") {
+	$color = "green"; 
+	
+}else{	
+
+
 }
 
  ?>
@@ -32,6 +68,15 @@ if(isset($_SESSION['logmein'])){
 		<link rel="stylesheet" href="../assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
+	
+	<style>
+	
+	body {
+		background-color: <?php echo $selectcolor; ?>
+	}
+	
+	</style>
+	
 	<body class="landing">
 		<div id="page-wrapper">
 
@@ -41,31 +86,22 @@ if(isset($_SESSION['logmein'])){
 					<nav id="nav">
 						<ul>
 							<li><a href="index.php">Home</a></li>
-							<li>
-								<a href="#" class="icon fa-angle-down">Layouts</a>
-								<ul>
-									<li><a href="generic.html">Generic</a></li>
+							<li>	
+								<a href="edit.php?val=<?php echo $_SESSION['logmein']; ?>">Edit profile</a>
+							<ul>
+							<li><a href="logout.php">Logout</a></li>
 									<li><a href="contact.php">Contact</a></li>
-									<li><a href="elements.html">Elements</a></li>
-									<li>
-										<a href="#">Submenu</a>
-										<ul>
-											<li><a href="#">Option One</a></li>
-											<li><a href="#">Option Two</a></li>
-											<li><a href="#">Option Three</a></li>
-											<li><a href="#">Option Four</a></li>
-										</ul>
-									</li>
-								</ul>
+							
+							</ul>
 							</li>
-							<li><a href="reg.php" class="button">Sign Up</a></li>
+							<li><a href="Logout.php" class="button">Logout</a></li>
 						</ul>
 					</nav>
 				</header>
 
 			<!-- Banner -->
 				<section id="banner">
-					<h2>Hello <?php echo $username?> </h2>
+					<h2>Hello <?php echo $userfulname?> </h2>
 					<p>Another fine responsive site template freebie by HTML5 UP. <?php echo $showdate." ".$time12;?></p>
 					<ul class="actions">
 						<li><a href="reg.php" class="button special">Sign Up</a></li>
@@ -78,13 +114,11 @@ if(isset($_SESSION['logmein'])){
 
 					<section class="box special">
 						<header class="major">
-							<h2>Introducing the ultimate mobile app
+							<h2>About me
 							<br />
-							for doing stuff with your phone</h2>
-							<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc ornare<br />
-							adipiscing nunc adipiscing. Condimentum turpis massa.</p>
+							<p> <?php echo $userabout; ?></p>
 						</header>
-						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+						<span class="image featured"><img src="../images/pic01.jpg" alt="" /></span>
 					</section>
 
 					<section class="box special features">
