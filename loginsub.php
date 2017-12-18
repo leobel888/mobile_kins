@@ -6,7 +6,7 @@ $usercredential = $_POST['userlog'];
 $userpassword   = $_POST['password'];
 
 
-//Connect to mongodb
+//For connect to mongodb
 $m = new MongoClient('mongodb://admin:2765@ds040017.mlab.com:40017/test_base');
 
 // select a database
@@ -25,6 +25,8 @@ $numdocemail = $cursoremail->count();
 $numdocuser  = $cursoruser->count();
 
 if($numdocemail == 1 || $numdocuser == 1) {
+
+//	echo "user found";
 
 	$cursor = $collection->find(array("email" => $usercredential));
 	
@@ -45,43 +47,29 @@ if($numdocemail == 1 || $numdocuser == 1) {
 		$passOut = $document["password"];
 	}
 			
+	echo "<br>";
 	$ValPass = base64_decode($passOut);
-	
-	if($user_email == $usercredential || $username == $usercredential){
 		
-		$EorUfound = 1;
-	
-		if($ValPass == $userpassword) {
-			echo "PS good";
-			$passgood = 1;
-		}else {
-			echo "fail";
-		}
+	echo "<br>";
+	echo "<br>";
+	echo "<br>";
 
-		if($EorUfound && $passgood ==1 ){
-			
-			echo "Log MI IN!";
-			$_SESSION['logmein'] = $username;
-
-			header('Location: page/index.php');
-			
-		}else{
-			echo "DONT login";
-			
-			$_SESSION['badcredential'] = "Check username/email or password";
-			header('Location: login.php');
-		} 
+	if($user_email == $usercredential || $username == $usercredential && $ValPass == $userpassword){
+	
 		
-	}else{	
-	   //$_SESSION['badcredential'] = "Check username/email or password";
-		// header('Location: login.php');
-		} 	
+		$_SESSION['logmein'] = $name;	
+		header('Location: page/index.php');
+    
+	}else{
+		$_SESSION['badcredential'] = "Check username/email or password";
+		header('Location: login.php');
+	}		
+	
+	}else{
 		
-}else{
-	$_SESSION['badcredential'] = "Pleace create an account  <a href = 'signup.php'>Clicik here</a> to create account ";
-	header('Location: login.php');
-		
-	echo  "No account";
+		$_SESSION['badcredential'] = "Check username/email or password";
+		header('location: login.php');
+//		echo "No account";	
 	}
 	
 ?>

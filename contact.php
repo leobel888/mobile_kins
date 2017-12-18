@@ -17,52 +17,69 @@
 		<div id="page-wrapper">
 
 			<!-- Header -->
-			<?php
-			include nav.php
-			?>
-				
-				<!-- Main -->
-			<section id="main" class="container 75%">
-				<header>
-					<h2>Contact Us</h2>
-					<p>Tell us what you think about our little operation.</p>
-				</header>
-				
-				<div class="box">
-					<form method="post" action="sub.php">
-						
-						<div class="row uniform 50%">
-							<div class="6u 12u(mobilep)">
-								<input type="text" pattern = "^[A-Za-z.\s_-1]+$" title = "only letters no numbers" name="name" id="name" value="" placeholder="Name" required/>
-							</div>
-							<div class="6u 12u(mobilep)">
-								<input type="email" name="email" id="email" value="" placeholder="Email" required/>
-							</div>
-						</div>
-						
-						<div class="row uniform 50%">
-							<div class="12u">
-								<input type="text" name="subject" id="subject" value="" placeholder="Subject" required/>
-							</div>
-						</div>
-						
-						<div class="row uniform 50%">
-							<div class="12u">
-								<textarea name="message" id="message" placeholder="Enter your message" rows="6" required ></textarea>
-							</div>
-						</div>
-						
-						<div class="row uniform">
-							<div class="12u">
-								<ul class="actions align-center">
-									<li><input type="submit" value="Send Message" /></li>
+				<header id="header">
+					<h1><a href="index.php">Alpha</a> by HTML5 UP</h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="index.php">Home</a></li>
+							<li>
+								<a href="#" class="icon fa-angle-down">Layouts</a>
+								<ul>
+									<li><a href="generic.html">Generic</a></li>
+									<li><a href="contact.php">Contact</a></li>
+									<li><a href="elements.html">Elements</a></li>
+									<li>
+										<a href="#">Submenu</a>
+										<ul>
+											<li><a href="#">Option One</a></li>
+											<li><a href="#">Option Two</a></li>
+											<li><a href="#">Option Three</a></li>
+											<li><a href="#">Option Four</a></li>
+										</ul>
+									</li>
 								</ul>
+							</li>
+							<li><a href="reg.php" class="button">Sign Up</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<section id="main" class="container 75%">
+					<header>
+						<h2>Contact Us</h2>
+						<p>Tell us what you think about our little operation.</p>
+					</header>
+					<div class="box">
+						<form method="post" action="sub.php">
+							<div class="row uniform 50%">
+								<div class="6u 12u(mobilep)">
+									<input type="text" pattern = "^[A-Za-z.\s_-1]+$" title = "only letters no numbers" name="name" id="name" value="" placeholder="Name" required/>
+								</div>
+								<div class="6u 12u(mobilep)">
+									<input type="email" name="email" id="email" value="" placeholder="Email" required/>
+								</div>
 							</div>
-						</div>
-					
-					</form>
-				</div>
-			</section>
+							<div class="row uniform 50%">
+								<div class="12u">
+									<input type="text" name="subject" id="subject" value="" placeholder="Subject" required/>
+								</div>
+							</div>
+							<div class="row uniform 50%">
+								<div class="12u">
+									<textarea name="message" id="message" placeholder="Enter your message" rows="6" required ></textarea>
+								</div>
+							</div>
+							<div class="row uniform">
+								<div class="12u">
+									<ul class="actions align-center">
+										<li><input type="submit" value="Send Message" /></li>
+									</ul>
+								</div>
+							</div>
+						</form>
+					</div>
+				</section>
 
 			<!-- Footer -->
 				<footer id="footer">
