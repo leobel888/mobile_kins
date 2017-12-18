@@ -1,17 +1,17 @@
 <?php
+session_start();
 
- session_start();
-
- if(isset($_SESSION['badcap'])){
-	 $_SESSION['badcap'];
-	 unset($_SESSION['badcap']);
+if(isset($_SESSION['badcap'])){
+	$_SESSION['badcap'];
+	unset($_SESSION['badcap']);
  }	
- if(isset($_SESSION['foundaccount'])){
-	 $_SESSION['foundaccount'];
-	 unset($_SESSION['foundaccount']);
+ 
+if(isset($_SESSION['foundaccount'])){
+	$_SESSION['foundaccount'];
+	unset($_SESSION['foundaccount']);
 }
+//var_dump( $_SESSION );
 
-var_dump( $_SESSION );
 
 ?>
 <!DOCTYPE HTML>
@@ -31,12 +31,12 @@ var_dump( $_SESSION );
 		<script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
 	<body>
-	<div id="page-wrapper">
+		<div id="page-wrapper">
 
-<!-- Header -->
- <?PHP
-// include "nav.php";
- ?>
+		<!-- Header -->
+		<?php
+			include "nav.php";
+		?>
 
 <!-- Main -->
 	<section id="main" class="container 75%">
